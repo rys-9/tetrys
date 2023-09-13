@@ -1,0 +1,121 @@
+:root {
+  background-color: #30506a;
+  padding: 2em;
+  padding-top: 4em;
+}
+
+BODY,
+H2,
+H3,
+H4,
+H5,
+H6,
+TH,
+TD {
+  font-family: 'Courier New', monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+H1 {
+  color: #f3eedd;
+  font-size: 3em;
+  font-family: 'Courier New', monospace;
+  font-weight: bolder;
+  background-color: #406187;
+  border-radius: 0.05em;
+  padding: 0.1em 0.1em 0.1em 0.1em;
+  box-shadow: 0em 0em 0.15em rgb(28, 46, 57);
+  text-shadow: 0em 0em 1px rgb(28, 46, 57);
+}
+
+.flex {
+  display: flex;
+  row-gap: 1em;
+  column-gap: 1em;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+main {
+  background-color: #59bb9c;
+  border-radius: 0.25em;
+  box-shadow: 0em 0em 0.5em rgb(28, 46, 57);
+  flex-wrap: wrap;
+  padding: 1em;
+  max-width: 400px;
+}
+
+svg {
+  border-radius: 0.1em;
+  border: 5px solid #0B7786;
+}
+
+svg rect {
+  stroke: black;
+  stroke-width: 2px;
+}
+
+#svgCanvas {
+  background-color: #a6c2bb;
+}
+
+#svgPreview {
+  background-color: #bbd5cf;
+}
+
+#info {
+  width: 160px;
+  margin-top: 1em;
+}
+
+#info > .text {
+  font-weight: bold;
+}
+
+.left {
+  font-size: 1.1em;
+  float: left;
+}
+
+.right {
+  font-size: 1em;
+  float: right;
+}
+
+.smalltext {
+  font-size: 0.75em;
+  float: left;
+  font-weight: 300;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-left: 5px;
+}
+
+.smallertext {
+  font-size: 0.65em;
+  float: left;
+  font-weight: 300;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin-left: 5px;
+}
+
+#gameOver {
+  font-size: 1.5em;
+  font-weight: bolder;
+  text-align: center;
+}
+
+a.coloured-link {
+  color: #2d3154;
+}

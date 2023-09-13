@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <title>FIT2102 A1 2023</title>
+  </head>
+  <body>
+    <h1>Tetris</h1>
+    <main id="main" class="flex row">
+      <svg id="svgCanvas">
+        <!-- game over text box -->
+        <g id="gameOver" visibility="hidden">
+          <rect x="26" y="120" fill="white" height="48" width="149"></rect>
+          <text x="36" y="150">Game Over</text>
+          
+        </g>
+      </svg>
+      <div id="sideBar" class="flex col">
+        <svg id="svgPreview"></svg>
+        <div id="info" class="flex col">
+          <div class="text">
+            <span class="left">Level: </span>
+            <span class="right" id="levelText">...</span>
+          </div>
+          <div class="text">
+            <span class="left">Score: </span>
+            <span class="right" id="scoreText">...</span>
+          </div>
+          <div class="text">
+            <span class="left">Highscore: </span>
+            <span class="right" id="highScoreText">...</span>
+          </div>
+          <div class="text">
+            <span class="left">Controls: </span>
+            <span class="smalltext" id="controlsText">
+              <br> <b>A</b> - Move left 
+              <br> <b>D</b> - Move right 
+              <br> <b>S</b> - Move down 
+              <br> <b>W</b> - Move up (when paused)
+              <br> <b>Q</b> - Rotate anticlockwise
+              <br> <b>E</b> - Rotate clockwise
+              <br> <b>R</b> - Pause
+              <br> <b>P</b> - Restart
+              <br> <b>Z</b> - Calm Mode
+              <br>
+            </span>
+          </div>
+        </div>
+      </div>
+      <span class="smallertext">
+        Default game music from the 
+        <a class="coloured-link" href="https://undertale.com/" target="_blank" rel="noopener noreferrer">Undertale</a> 
+        soundtrack composed by Toby Fox. Calm mode uses 
+        <a class="coloured-link" href="https://pixabay.com/music/beats-rain-and-nostalgia-version-60s-10820/" target="_blank" rel="noopener noreferrer">Rain and Nostalgia ( Version 60s ) [level music]</a>
+        and 
+        <a class="coloured-link" href="https://pixabay.com/music/beats-lost-ambient-lofi-60s-10821/" target="_blank" rel="noopener noreferrer">Lost Ambient Lofi 60s [game over]</a>
+        . Sound effects used include 
+        <a class="coloured-link" href="https://youtu.be/f8mL0_4GeV0?si=mxeG4wlwSicQznIe" target="_blank" rel="noopener noreferrer">"Metal pipe falling sound effect but it&rsquo;s more violent"</a>, 
+        <a class="coloured-link" href="Retrieved from https://youtu.be/6yrdS4tIP9U?si=NOPrrROOMXyDvacj" target="_blank" rel="noopener noreferrer">"Vine boom sound effect"</a>, 
+        <a class="coloured-link" href="Retrieved from https://www.myinstants.com/en/instant/undertale-omega-flowey-laugh/" target="_blank" rel="noopener noreferrer">"Undertale - Omega Flowey Laugh"</a>, and
+        <a class="coloured-link" href="Retrieved from https://pixabay.com/sound-effects/the-notification-email-143029/" target="_blank" rel="noopener noreferrer">"The Notification Email"</a>.
+      </span>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+    <audio loop id="level1Music">
+      <!-- Fox, T. (2015). sans. On UNDERTALE Soundtrack[Audio file]. Retrieved from https://archive.org/details/undertaleost_202004 -->
+      <source src="./audio_assets/sans.mp3" type="audio/mpeg">
+    </audio>
+    <audio loop id="level2Music">
+      <!-- Fox, T. (2015). Tem Shop. On UNDERTALE Soundtrack[Audio file]. Retrieved from https://archive.org/details/undertaleost_202004 -->
+      <source src="./audio_assets/tem_shop.mp3" type="audio/mpeg">
+    </audio>
+    <audio loop id="level3Music">
+      <!-- Fox, T. (2015). Ghost Fight. On UNDERTALE Soundtrack[Audio file]. Retrieved from https://archive.org/details/undertaleost_202004 -->
+      <source src="./audio_assets/ghost_fight.mp3" type="audio/mpeg">
+    </audio>
+    <audio loop id="level4Music">
+      <!-- Fox, T. (2015). Can You Really Call This A Hotel, I Didn't Receive A Mint On My Pillow Or Anything. On UNDERTALE Soundtrack[Audio file]. Retrieved from https://archive.org/details/undertaleost_202004 -->
+      <source src="./audio_assets/can_you_really_call_this_a_hotel.mp3" type="audio/mpeg">
+    </audio>
+    <audio loop id="gameOverMusic">
+      <!-- Fox, T. (2015). Fallen Down. On UNDERTALE Soundtrack[Audio file]. Retrieved from https://archive.org/details/undertaleost_202004 -->
+      <source src="./audio_assets/fallen_down.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="freezeSound">
+      <!-- Metal pipe falling sound effect but it’s more violent. (Retrieved from https://youtu.be/f8mL0_4GeV0?si=mxeG4wlwSicQznIe) -->
+      <source src="./audio_assets/metal_pipe.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="rowClearSound">
+      <!-- Vine boom sound effect. (Retrieved from https://youtu.be/6yrdS4tIP9U?si=NOPrrROOMXyDvacj) -->
+      <source src="./audio_assets/vine_boom.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gameOverSound">
+      <!-- Undertale - Omega Flowey Laugh. (Retrieved from https://www.myinstants.com/en/instant/undertale-omega-flowey-laugh/) -->
+      <source src="./audio_assets/laugh.mp3" type="audio/mpeg">
+    </audio>
+    <audio loop id="calmMusic">
+      <!-- Rain and Nostalgia ( Version 60s ). (Retrieved from https://pixabay.com/music/beats-rain-and-nostalgia-version-60s-10820/) -->
+      <source src="./audio_assets/rain-and-nostalgia-version-60s-gamemusic.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="calmFreeze">
+      <!-- The Notification Email. (Retrieved from https://pixabay.com/sound-effects/the-notification-email-143029/) -->
+      <source src="./audio_assets/the-notification-email-freezeeffect.mp3" type="audio/mpeg">
+    </audio>
+    <audio loop id="calmGameOver">
+      <!-- Lost Ambient Lofi 60s. (Retrieved from https://pixabay.com/music/beats-lost-ambient-lofi-60s-10821/) -->
+      <source src="./audio_assets/lost-ambient-lofi-60s-gameover.mp3" type="audio/mpeg">
+    </audio>
+  </body>
+</html>
